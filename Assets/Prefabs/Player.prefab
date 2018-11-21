@@ -126,7 +126,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4578460767879574}
   - component: {fileID: 65457815512622690}
-  - component: {fileID: 114124426858097260}
+  - component: {fileID: 114110059399675714}
   m_Layer: 8
   m_Name: Up
   m_TagString: Untagged
@@ -372,7 +372,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.3, z: 0.3}
+  m_Size: {x: 0.5, y: 0.3, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65282020277288342
 BoxCollider:
@@ -384,7 +384,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.5}
+  m_Size: {x: 0.6, y: 0.3, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65457815512622690
 BoxCollider:
@@ -396,7 +396,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.3, z: 0.5}
+  m_Size: {x: 0.6, y: 0.3, z: 0.5}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65583991618170820
 BoxCollider:
@@ -408,7 +408,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.3, z: 0.3}
+  m_Size: {x: 0.5, y: 0.3, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!102 &102306199934550050
 TextMesh:
@@ -442,8 +442,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ea0c0a09bb9e448a4f6b8f90327603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wichTri: right
---- !u!114 &114124426858097260
+  active1: 0
+--- !u!114 &114110059399675714
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -454,7 +454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ea0c0a09bb9e448a4f6b8f90327603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wichTri: up
+  active1: 0
 --- !u!114 &114234409893020624
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ea0c0a09bb9e448a4f6b8f90327603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wichTri: down
+  active1: 0
 --- !u!114 &114382733615234582
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -499,6 +499,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothHurricaine: 0.4
   moveSpeed: 3
+  wich:
+  - {fileID: 1932215076493006}
+  - {fileID: 1583063713714626}
+  - {fileID: 1284100448723534}
+  - {fileID: 1203491222987822}
 --- !u!114 &114951142639412274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -510,7 +515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ea0c0a09bb9e448a4f6b8f90327603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wichTri: left
+  active1: 0
 --- !u!135 &135261235666128070
 SphereCollider:
   m_ObjectHideFlags: 1

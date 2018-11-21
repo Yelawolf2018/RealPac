@@ -23,7 +23,13 @@ public GameObject ShieldPP;
     public float smoothHurricaine = 0.05f;
 	public float moveSpeed = 5f;
 	int where;
+	 public GameObject[] wich;
+	 
 	void Start () {
+		 for(int i =0; i<wich.Length; i++)
+        {
+            wich[i].GetComponent<MoveMedregch>();
+        }
 		where = Random.Range(0,4);
 					if(where == 0)
 					{
@@ -56,7 +62,7 @@ public GameObject ShieldPP;
 	}
 	
 	void Update () {
-		randomMove();
+		//randomMove();
 		// if(!attack)
 		// {
 		
@@ -107,98 +113,184 @@ public GameObject ShieldPP;
 	
 
 	private void OnCollisionEnter(Collision others) {
-		if(others.gameObject.tag == "Wall")
-		{
-			if(up)
-                {
+		// if(others.gameObject.tag == "Wall")
+		// {
+		// 	if(up)
+        //         {
 					
-                    transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.25f),smoothHurricaine);
-                    up =false;
-					where = Random.Range(0,4);
-					if(where == 0)
-					{
-						down =true;
-					}
-					else if(where == 1)
-						 {
-							 left = true;
-						 }
-					else if(where ==3)
-						 {
-							 right = true;
-						 }
-					else
-					{
-						right =true;
-					}
-                }
-                else if(down)
-                {
-                    transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.25f),smoothHurricaine);
-                    down =false;
-					where = Random.Range(0,4);
-					if(where == 0)
-					{
-						up =true;
-					}
-					else if(where == 1)
-						 {
-							 left = true;
-						 }
-					else if(where ==3)
-						 {
-							 right = true;
-						 }
-					else
-					{
-						right =true;
-					}
-                }
-                else if(left)
-                {
-                    transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x+0.25f,transform.position.y ,transform.position.z),smoothHurricaine);
-                    left =false;
-					where = Random.Range(0,4);
-					if(where == 0)
-					{
-						right =true;
-					}
-					else if(where == 1)
-						 {
-							 up = true;
-						 }
-					else if(where ==3)
-						 {
-							down = true;
-						 }
-					else
-					{
-						down =true;
-					}
-                }
-                else if(right)
-                {
-                    transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x-0.25f,transform.position.y ,transform.position.z),smoothHurricaine);
-                    right =false;
-					where = Random.Range(0,4);
-					if(where == 0)
-					{
-						left=true;
-					}
-					else if(where == 1)
-						 {
-							 up = true;
-						 }
-					else if(where ==3)
-						 {
-							down = true;
-						 }
-					else
-					{
-						down =true;
-					}
-                }
-		}
+        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.25f),smoothHurricaine);
+        //             up =false;
+		// 			where = Random.Range(0,4);
+		// 			// if(where == 0 && wich[1].name != "active")
+		// 			// {
+		// 			// 	down =true;
+		// 			// }
+		// 			// else if(where == 1 && wich[2].name != "active")
+		// 			// 	 {
+		// 			// 		 left = true;
+		// 			// 	 }
+		// 			// else if(where ==3 && wich[3].name != "active")
+		// 			// 	 {
+		// 			// 		 right = true;
+		// 			// 	 }
+		// 			// else if(wich[3].name != "active")
+		// 			// {
+		// 			// 	right =true;
+		// 			// }
+		// 			if(wich[1].name != "active")
+		// 			{
+		// 					down =true;
+		// 					up =false;
+		// 					left =false;
+		// 					right =false;
+		// 			}
+		// 			if(wich[2].name !="active")
+		// 			{
+		// 				down =false;
+		// 					up =false;
+		// 					left =true;
+		// 					right =false;
+		// 			}
+		// 			if(wich[3].name != "active")
+		// 			{
+		// 				down =false;
+		// 					up =false;
+		// 					left =false;
+		// 					right = true;
+		// 			}
+					
+        //         }
+        //         else if(down)
+        //         {
+        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.25f),smoothHurricaine);
+        //             down =false;
+		// 			where = Random.Range(0,4);
+		// 			// if(where == 0 && wich[0].name != "active")
+		// 			// {
+		// 			// 	up =true;
+		// 			// }
+		// 			// else if(where == 1 && wich[2].name != "active")
+		// 			// 	 {
+		// 			// 		 left = true;
+		// 			// 	 }
+		// 			// else if(where ==3 && wich[3].name != "active")
+		// 			// 	 {
+		// 			// 		 right = true;
+		// 			// 	 }
+		// 			// else if(wich[3].name != "active")
+		// 			// {
+		// 			// 	right =true;
+		// 			// }
+		// 				if(wich[0].name != "active")
+		// 			{
+		// 					down =false;
+		// 					up =true;
+		// 					left =false;
+		// 					right =false;
+		// 			}
+		// 			if(wich[2].name !="active")
+		// 			{
+		// 				down =false;
+		// 					up =false;
+		// 					left =true;
+		// 					right =false;
+		// 			}
+		// 			if(wich[3].name != "active")
+		// 			{
+		// 				down =false;
+		// 					up =false;
+		// 					left =false;
+		// 					right = true;
+		// 			}
+					
+        //         }
+        //         else if(left)
+        //         {
+        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x+0.25f,transform.position.y ,transform.position.z),smoothHurricaine);
+        //             left =false;
+		// 			where = Random.Range(0,4);
+		// 			// if(where == 0 && wich[3].name != "active")
+		// 			// {
+		// 			// 	right =true;
+		// 			// }
+		// 			// else if(where == 1 && wich[0].name != "active")
+		// 			// 	 {
+		// 			// 		 up = true;
+		// 			// 	 }
+		// 			// else if(where ==3 && wich[1].name != "active")
+		// 			// 	 {
+		// 			// 		down = true;
+		// 			// 	 }
+		// 			// else if(wich[1].name != "active")
+		// 			// {
+		// 			// 	down =true;
+		// 			// }
+		// 				if(wich[1].name != "active")
+		// 			{
+		// 					down =true;
+		// 					up =false;
+		// 					left =false;
+		// 					right =false;
+		// 			}
+		// 			if(wich[0].name !="active")
+		// 			{
+		// 				down =false;
+		// 					up =true;
+		// 					left =false;
+		// 					right =false;
+		// 			}
+		// 			if(wich[3].name != "active")
+		// 			{
+		// 				down =false;
+		// 					up =false;
+		// 					left =false;
+		// 					right = true;
+		// 			}
+        //         }
+        //         else if(right)
+        //         {
+        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x-0.25f,transform.position.y ,transform.position.z),smoothHurricaine);
+        //             right =false;
+		// 			where = Random.Range(0,4);
+		// 			// if(where == 0 && wich[2].name != "active")
+		// 			// {
+		// 			// 	left=true;
+		// 			// }
+		// 			// else if(where == 1 && wich[0].name != "active")
+		// 			// 	 {
+		// 			// 		 up = true;
+		// 			// 	 }
+		// 			// else if(where ==3 && wich[1].name != "active")
+		// 			// 	 {
+		// 			// 		down = true;
+		// 			// 	 }
+		// 			// else if(wich[1].name != "active")
+		// 			// {
+		// 			// 	down =true;
+		// 			// }
+		// 				if(wich[1].name != "active")
+		// 			{
+		// 					down =true;
+		// 					up =false;
+		// 					left =false;
+		// 					right =false;
+		// 			}
+		// 			if(wich[2].name !="active")
+		// 			{
+		// 				down =false;
+		// 					up =false;
+		// 					left =true;
+		// 					right =false;
+		// 			}
+		// 			if(wich[0].name != "active")
+		// 			{
+		// 				down =false;
+		// 					up =true;
+		// 					left =false;
+		// 					right = false;
+		// 			}
+        //         }
+		// }
 			
 		
 		if(others.gameObject.tag =="Shield")

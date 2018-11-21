@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class MoveMedregch : MonoBehaviour {
 
-	public string wichTri;
-	public string WichTrigger;
+	public bool active1;
 	void Start () {
-		
+		active1 =false;
 	}
 	
 	// Update is called once per frame
@@ -17,7 +16,15 @@ public class MoveMedregch : MonoBehaviour {
 	private void OnTriggerStay(Collider other) {
 		if(other.gameObject.tag =="Wall")
 		{
-			WichTrigger = wichTri;
+			active1 = true;
+			gameObject.name = "active";
 		}
+	}
+		private void OnTriggerExit(Collider other) {
+			if(other.gameObject.tag == "Wall")
+			{
+				gameObject.name = "nonActive";
+				active1=false;
+			}
 	}
 }

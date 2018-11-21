@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour {
 //    int t;
     public GameObject[] wich;
 	private void Start() {
+        for(int i =0; i<wich.Length; i++)
+        {
+            wich[i].GetComponent<MoveMedregch>();
+        }
         collide =false;
       //  t = 0;
 		up =  true;
@@ -104,30 +108,37 @@ public class PlayerController : MonoBehaviour {
                 if (tmpX > dragDistance)
                 {
                     //swipe left
+                    if(wich[2].name !="active")
+                        {
                     if (currentSwipe.x < 0)
                     {
                         
                         
-                              left = true;
-                        
-                      
+                                 left = true;
+                          
                         up = false;
 						down =false;
 						right =false;
 						
                     }
-                    else
+                    }
+                         if(wich[1].name != "active")
+                            {   
+                    if(currentSwipe.x>0)
                     {
                         //swipe right
                      
-                       
-                              right = true;
-                        
+                           
+                                 right = true;
+                           
+                            
 					   	up = false;
 						down =false;
 						left =false;
 						
-                    }
+                        }
+                     }  
+                             
                 }
             }
             else
@@ -135,22 +146,30 @@ public class PlayerController : MonoBehaviour {
                 if (tmpY > dragDistance)
                 {
                     //swipe upwards
+                    if(wich[0].name !="active")
+                        {
                     if (currentSwipe.y > 0)
                     {
                         
-                              up = true;
+                            up = true;
                         
-                        
-						down =false;
+                              
+                              
+                          down =false;
 						right =false;
 						left =false;
 						
                     }
+                        }
                     //swipe down
+                    if(wich[3].name !="active")
+                        {
                     if (currentSwipe.y < 0)
                     {
-                     
-                              down =true;
+                        
+                                down =true;
+                        
+                              
                         
 					   up = false;
 		
@@ -158,6 +177,7 @@ public class PlayerController : MonoBehaviour {
 						left =false;
 						
                     }
+                        }
                 }
             }
         }
@@ -196,30 +216,29 @@ public class PlayerController : MonoBehaviour {
             
                 if(up)
                 {
-                    
+                       transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.15f),smoothHurricaine);
                    up =false;
                   
                 }
                 else if(down)
                 {
-                    
+                       transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.15f),smoothHurricaine);
+                    down =false;
                 }
                 else if(left)
                 {
-                  
+                     transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x+0.15f,transform.position.y ,transform.position.z),smoothHurricaine);
                      left =false;
                     
                 }
                 else if(right)
                 {
-                      
+                         transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x-0.15f,transform.position.y ,transform.position.z),smoothHurricaine);
                     right =false;
                   
                 }
                // collide =false;
-            
-                
-        }
+              }
     }
    
 }
