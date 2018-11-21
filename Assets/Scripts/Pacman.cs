@@ -4,40 +4,48 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Pacman : MonoBehaviour {
 
+
 public GameObject ShieldPP;
-	public NavMeshAgent agent;
+
 	public GameObject[] PP;
 	public TextMesh textMesh;
 	public int score;
 	public bool death;
-
-	float randomDRange;
-	float timer;
-	float x;
-	float z;
-	float[] range;
-	bool attack;
 	public string pacNameVAlue;
 	public static string pacName;
 
 	public bool giveShield;
 	float delay;
 	
-    public float wanderTimer;
-	public Vector3[] randPos;
-	int wichRandPos;
-    private Transform target;
-    
-	public Material[] mat;
+    public Material[] mat;
 	int matInt;
-	
+	bool up,down,right,left;
+    public float smoothHurricaine = 0.05f;
+	public float moveSpeed = 5f;
+	int where;
 	void Start () {
-	//	wichRandPos = Random.Range(0,4);
-//		target.position = randPos[wichRandPos];
+		where = Random.Range(0,4);
+					if(where == 0)
+					{
+						right =true;
+					}
+					else if(where == 1)
+						 {
+							 up = true;
+						 }
+					else if(where ==3)
+						 {
+							down = true;
+						 }
+					else
+					{
+						left = true;
+					}
+		
 		matInt  =Random.Range(0,6);
 		GetComponent<Renderer>().material = mat[matInt];
-		attack =false;
-		timer = wanderTimer;
+		
+	
 		ShieldPP.SetActive(false);
 		delay = 5;
 		giveShield =false;
@@ -48,18 +56,13 @@ public GameObject ShieldPP;
 	}
 	
 	void Update () {
-		if(!attack)
-		{
-			randomMove();
-		}
-		else
-		{
-			//	agent.SetDestination(target.position);
-			//if(Vector3.Distance(transform.position,target.position)<=0.5)
-		//	{
-			//	attack =false;
-			//}
-		}
+		randomMove();
+		// if(!attack)
+		// {
+		
+		// 	randomMove();
+		// }
+		
 		if(giveShield)
 			{
 				delay-=Time.deltaTime;
@@ -84,104 +87,119 @@ public GameObject ShieldPP;
 		
 		void randomMove()
 		{
-			 timer += Time.deltaTime;
-			
-        if (timer >= wanderTimer) {
-            wichRandPos = Random.Range(0,4);
-            agent.SetDestination(randPos[wichRandPos]);
-			timer = 0;
-        }
-		float distanse = Vector3.Distance(transform.position,randPos[wichRandPos]);
-			if(distanse<2)
+			if(up)
 			{
-				timer = wanderTimer;
+				transform.Translate(0,0,moveSpeed*Time.deltaTime);
+			}
+			else if(down)
+			{
+				transform.Translate(0,0,-moveSpeed*Time.deltaTime);
+			}
+			else if(left)
+			{
+				transform.Translate(-moveSpeed*Time.deltaTime,0,0);
+			}
+			else if(right)
+			{
+				transform.Translate(moveSpeed*Time.deltaTime,0,0);
 			}
 		}
+	
 
-	private void OnTriggerEnter(Collider other){
-
-		if(other.gameObject.tag=="Pac" || other.gameObject.tag == "Player" || other.gameObject.tag == "Shield" )
-		{
-			attack = true;
-		}
-		else
-		{
-			attack =false;
-		}
-		
-	}
-		private void OnTriggerStay(Collider other) {
-		
-		
-		if(other.gameObject.tag=="Player")
-		{
-			if(other.gameObject.GetComponent<Player>()!=null)
-			{
-					if(other.gameObject.GetComponent<Player>().score<score && !other.gameObject.GetComponent<Player>().giveShield)
-			{
-				agent.SetDestination(other.gameObject.transform.position);
-			//	target = other.gameObject.transform;
-			}
-			else
-			{
-				
-				Vector3 dirToPlayer = transform.position-other.gameObject.transform.position;
-				Vector3 newPos = transform.position+dirToPlayer;
-				agent.SetDestination(newPos);
-				//target.position = newPos;
-			}
-			if(!other.gameObject.GetComponent<Player>().giveShield && giveShield)
-			{
-				agent.SetDestination(other.gameObject.transform.position);
-				//target = other.gameObject.transform;
-			}
-			}
-			
-			
-				}
-		
-		
-		if(other.gameObject.tag=="Pac")
-		{
-			if(other.gameObject.GetComponent<Pacman>()!=null)
-			{
-					if(other.gameObject.GetComponent<Pacman>().score<score && !other.gameObject.GetComponent<Pacman>().giveShield)
-			{
-				agent.SetDestination(other.gameObject.transform.position);
-				//target = other.gameObject.transform;
-			}
-			else
-			{
-				Vector3 dirToPlayer = transform.position-other.gameObject.transform.position;
-				Vector3 newPos = transform.position+dirToPlayer;
-				agent.SetDestination(newPos);
-				//target.position = newPos;
-			}
-			if(!other.gameObject.GetComponent<Pacman>().giveShield && giveShield)
-			{
-				agent.SetDestination(other.gameObject.transform.position);
-				//target = other.gameObject.transform;
-			}
-			}
-				
-		}
-		if(other.gameObject.tag== "Shield")
-		{
-			
-			agent.SetDestination(other.gameObject.transform.position);
-			//target = other.gameObject.transform;
-		}
-		
-		
-	}
-	private void OnTriggerExit(Collider other) {
-		if(other.gameObject.tag == "Pac" || other.gameObject.tag =="Player" || other.gameObject.tag =="Shield")
-		{
-			 attack =false;
-		}
-		
-	}
 	private void OnCollisionEnter(Collision others) {
+		if(others.gameObject.tag == "Wall")
+		{
+			if(up)
+                {
+					
+                    transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.25f),smoothHurricaine);
+                    up =false;
+					where = Random.Range(0,4);
+					if(where == 0)
+					{
+						down =true;
+					}
+					else if(where == 1)
+						 {
+							 left = true;
+						 }
+					else if(where ==3)
+						 {
+							 right = true;
+						 }
+					else
+					{
+						right =true;
+					}
+                }
+                else if(down)
+                {
+                    transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.25f),smoothHurricaine);
+                    down =false;
+					where = Random.Range(0,4);
+					if(where == 0)
+					{
+						up =true;
+					}
+					else if(where == 1)
+						 {
+							 left = true;
+						 }
+					else if(where ==3)
+						 {
+							 right = true;
+						 }
+					else
+					{
+						right =true;
+					}
+                }
+                else if(left)
+                {
+                    transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x+0.25f,transform.position.y ,transform.position.z),smoothHurricaine);
+                    left =false;
+					where = Random.Range(0,4);
+					if(where == 0)
+					{
+						right =true;
+					}
+					else if(where == 1)
+						 {
+							 up = true;
+						 }
+					else if(where ==3)
+						 {
+							down = true;
+						 }
+					else
+					{
+						down =true;
+					}
+                }
+                else if(right)
+                {
+                    transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x-0.25f,transform.position.y ,transform.position.z),smoothHurricaine);
+                    right =false;
+					where = Random.Range(0,4);
+					if(where == 0)
+					{
+						left=true;
+					}
+					else if(where == 1)
+						 {
+							 up = true;
+						 }
+					else if(where ==3)
+						 {
+							down = true;
+						 }
+					else
+					{
+						down =true;
+					}
+                }
+		}
+			
 		
 		if(others.gameObject.tag =="Shield")
 		{
@@ -195,7 +213,7 @@ public GameObject ShieldPP;
 				if(others.gameObject.GetComponent<Pacman>().score<score && !others.gameObject.GetComponent<Pacman>().giveShield)
 			{
 				others.gameObject.GetComponent<Pacman>().death =true;
-				attack =false;
+			
 				score+=10;
 				textMesh.text = score.ToString();
 				
@@ -203,7 +221,7 @@ public GameObject ShieldPP;
 			if(giveShield && !others.gameObject.GetComponent<Pacman>().giveShield)
 			{
 				others.gameObject.GetComponent<Pacman>().death =true;
-				attack =false;
+				
 				score+=10;
 				textMesh.text = score.ToString();
 			}
@@ -218,7 +236,7 @@ public GameObject ShieldPP;
 					if(others.gameObject.GetComponent<Player>().score<score && !others.gameObject.GetComponent<Player>().giveShield)
 			{
 				others.gameObject.GetComponent<Player>().death =true;
-				attack =false;
+			
 				score+=10;
 				textMesh.text = score.ToString();
 				
@@ -226,7 +244,7 @@ public GameObject ShieldPP;
 			if(giveShield && !others.gameObject.GetComponent<Player>().giveShield)
 			{
 				others.gameObject.GetComponent<Player>().death =true;
-				attack =false;
+			
 				score+=10;
 				textMesh.text = score.ToString();
 			}

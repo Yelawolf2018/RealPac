@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject[] pacman;
 	public Vector3[] spawnPos;
 	public GameObject restartBut;
+	public GameObject startBut;
 	public RawImage bg;
 	
 	public Text highScore;
@@ -18,13 +19,13 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		Time.timeScale = 0;
 		restartBut.GetComponent<Button>();
+		startBut.GetComponent<Button>();
 		restartBut.SetActive(false);
 		bg.GetComponent<Image>();
 		highScoreTitle.GetComponent<RawImage>();
 		currentScore.GetComponent<Text>();
 		currentScore.enabled =false;
-		//bg.enabled =false;
-	
+		bg.enabled =false;
 	}
 	void Update () {
 			if(Player.gameOver)
@@ -37,7 +38,7 @@ public class GameManager : MonoBehaviour {
 			}
 			if(Input.GetMouseButtonDown(0))
 				{
-					bg.enabled =false;
+					startBut.SetActive(false);
 					highScore.enabled =false;
 					highScoreTitle.enabled =false;
 					Time.timeScale =1;
@@ -83,6 +84,4 @@ public class GameManager : MonoBehaviour {
 			Pacman.pacName = "";
 		}
 	}
-	
-
 }

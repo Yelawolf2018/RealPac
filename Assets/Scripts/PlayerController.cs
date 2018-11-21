@@ -5,16 +5,22 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
 	bool up,down,right,left;
+    public float smoothHurricaine = 0.05f;
 	public float moveSpeed = 5f;
 //    int t;
+    public GameObject[] wich;
 	private void Start() {
+        collide =false;
       //  t = 0;
-		up = false;
+		up =  true;
 		down =false;
 		right =false;
 		left =false;
 	}
 	void Update () {
+        //Swipe();
+    }
+    private void FixedUpdate() {
         Swipe();
     }
     
@@ -24,7 +30,7 @@ public class PlayerController : MonoBehaviour {
     Vector2 secondPressPos;
     Vector2 currentSwipe;
     bool isHold = false;
-
+    bool collide;
     public void Swipe()
     {
         if (Input.GetMouseButtonDown(0))
@@ -33,11 +39,37 @@ public class PlayerController : MonoBehaviour {
             //save began touch 2d point
             firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             isHold = true;
+        
         }
         if (Input.GetMouseButtonUp(0))
         {
-            isHold = false;
             
+        //    if(collide)
+        //    {
+        //         if(up)
+        //         {
+        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.2f),smoothHurricaine);
+        //             up =false;
+        //         }
+        //         else if(down)
+        //         {
+        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.2f),smoothHurricaine);
+        //             down =false;
+        //         }
+        //         else if(left)
+        //         {
+        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x+0.2f,transform.position.y ,transform.position.z),smoothHurricaine);
+        //             left =false;
+        //         }
+        //         else if(right)
+        //         {
+        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x-0.2f,transform.position.y ,transform.position.z),smoothHurricaine);
+        //             right =false;
+        //         }
+        //         collide = false;
+        //    }
+            isHold = false;
+           
         }
 
         if (isHold)
@@ -74,8 +106,12 @@ public class PlayerController : MonoBehaviour {
                     //swipe left
                     if (currentSwipe.x < 0)
                     {
-                        left = true;
-						up = false;
+                        
+                        
+                              left = true;
+                        
+                      
+                        up = false;
 						down =false;
 						right =false;
 						
@@ -83,7 +119,10 @@ public class PlayerController : MonoBehaviour {
                     else
                     {
                         //swipe right
-                       right = true;
+                     
+                       
+                              right = true;
+                        
 					   	up = false;
 						down =false;
 						left =false;
@@ -98,8 +137,10 @@ public class PlayerController : MonoBehaviour {
                     //swipe upwards
                     if (currentSwipe.y > 0)
                     {
-                        up = true;
-						
+                        
+                              up = true;
+                        
+                        
 						down =false;
 						right =false;
 						left =false;
@@ -108,7 +149,9 @@ public class PlayerController : MonoBehaviour {
                     //swipe down
                     if (currentSwipe.y < 0)
                     {
-                       down = true;
+                     
+                              down =true;
+                        
 					   up = false;
 		
 						right =false;
@@ -121,9 +164,13 @@ public class PlayerController : MonoBehaviour {
 		wichWay();
        
     }
-	void wichWay()
+	public void wichWay()
 	{
-		if(up)
+          transform.Translate(Vector3.forward * Time.deltaTime * Input.GetAxis("Vertical")* moveSpeed);
+           transform.Translate(Vector3.right * Time.deltaTime * Input.GetAxis("Horizontal")* moveSpeed); 
+        if(!collide)
+        {
+            if(up)
 			{
 				transform.Translate(0,0,moveSpeed*Time.deltaTime);
 			}
@@ -138,33 +185,40 @@ public class PlayerController : MonoBehaviour {
 			else if(right)
 			{
 				transform.Translate(moveSpeed*Time.deltaTime,0,0);
-			}
+            }
+        }
 	}
     private void OnCollisionEnter(Collision other) {
         if(other.gameObject.tag =="Wall")
         {
+            // collide =true;
+
             
                 if(up)
                 {
-                    transform.position = new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.2f);
-                    up =false;
+                    
+                   up =false;
+                  
                 }
                 else if(down)
                 {
-                    transform.position = new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.2f);
-                    down =false;
+                    
                 }
                 else if(left)
                 {
-                    transform.position = new Vector3(transform.position.x+0.2f,transform.position.y ,transform.position.z);
-                    left =false;
+                  
+                     left =false;
+                    
                 }
                 else if(right)
                 {
-                    transform.position = new Vector3(transform.position.x-0.2f,transform.position.y ,transform.position.z);
+                      
                     right =false;
+                  
                 }
-                 
+               // collide =false;
+            
+                
         }
     }
    

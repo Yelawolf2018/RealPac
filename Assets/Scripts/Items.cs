@@ -7,6 +7,8 @@ public class Items : MonoBehaviour {
 	bool die;
 	MeshCollider coll;
 	MeshRenderer mesh;
+	public Vector3[] randPos;
+	int w;
 	
 	void Start () {
 		mesh = GetComponent<MeshRenderer>();
@@ -17,6 +19,8 @@ public class Items : MonoBehaviour {
 		if(die)
 		{
 			delay = Time.timeSinceLevelLoad+15f;
+			w = Random.Range(0,5);
+			transform.position = randPos[w];
 			die =false;
 		}
 		{
@@ -42,6 +46,7 @@ public class Items : MonoBehaviour {
 		{
 			mesh.enabled =true;
 			coll.enabled =true;
+			
 		}
 	}
 	
