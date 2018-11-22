@@ -23,9 +23,10 @@ public class PlayerController : MonoBehaviour {
 	}
 	void Update () {
         //Swipe();
+      
     }
     private void FixedUpdate() {
-        Swipe();
+       Swipe();
     }
     
         
@@ -177,7 +178,7 @@ public class PlayerController : MonoBehaviour {
 						left =false;
 						
                     }
-                        }
+                   }
                 }
             }
         }

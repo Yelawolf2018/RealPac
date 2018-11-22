@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour {
 
 
 	public GameObject[] pacman;
-	public Vector3[] spawnPos;
+	public Transform[] spawnPos;
 	public GameObject restartBut;
 	public GameObject startBut;
 	public RawImage bg;
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour {
 		highScoreTitle.GetComponent<RawImage>();
 		currentScore.GetComponent<Text>();
 		currentScore.enabled =false;
-		bg.enabled =false;
+		bg.enabled =true;
 	}
 	void Update () {
 			if(Player.gameOver)
@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour {
 			}
 			if(ButtonFunctions.start)
 				{
+					bg.enabled = false;
 					startBut.SetActive(false);
 					highScore.enabled =false;
 					highScoreTitle.enabled =false;
@@ -54,8 +55,8 @@ public class GameManager : MonoBehaviour {
 	{
 		if(Pacman.pacName == "Bob")
 		{
-			whichPos =Random.Range(0,39);
-			Instantiate(pacman[0],spawnPos[whichPos],Quaternion.identity);
+			whichPos =Random.Range(0,9);
+			Instantiate(pacman[0],spawnPos[whichPos].position,Quaternion.identity);
 			
 			Pacman.pacName = "";
 		}

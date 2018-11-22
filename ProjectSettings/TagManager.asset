@@ -8,6 +8,7 @@ TagManager:
   - Shield
   - Dots
   - Pac
+  - p
   layers:
   - Default
   - TransparentFX

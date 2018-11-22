@@ -1,7 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pacIO", "Assembly-CSharp-firstpass.csproj", "{7FEB4CA0-F343-64CA-4A4C-C5AD86552424}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pacIO", "Assembly-CSharp.csproj", "{3EC9A670-AC61-378E-5691-9CE700A06DCD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pacIO", "Assembly-CSharp-Editor-firstpass.csproj", "{80B653B2-D9FB-1FDF-3346-A4AE2F81C2DA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,10 +13,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7FEB4CA0-F343-64CA-4A4C-C5AD86552424}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7FEB4CA0-F343-64CA-4A4C-C5AD86552424}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7FEB4CA0-F343-64CA-4A4C-C5AD86552424}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7FEB4CA0-F343-64CA-4A4C-C5AD86552424}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3EC9A670-AC61-378E-5691-9CE700A06DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3EC9A670-AC61-378E-5691-9CE700A06DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3EC9A670-AC61-378E-5691-9CE700A06DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3EC9A670-AC61-378E-5691-9CE700A06DCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80B653B2-D9FB-1FDF-3346-A4AE2F81C2DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80B653B2-D9FB-1FDF-3346-A4AE2F81C2DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80B653B2-D9FB-1FDF-3346-A4AE2F81C2DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80B653B2-D9FB-1FDF-3346-A4AE2F81C2DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
