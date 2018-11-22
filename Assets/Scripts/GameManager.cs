@@ -30,19 +30,23 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 			if(Player.gameOver)
 			{
+				
 				restartBut.SetActive(true);
 				currentScore.enabled = true;
 				bg.enabled = true;
 				highScoreTitle.enabled =true;
 				highScore.enabled =true;
+			
+				
+				
 			}
-			if(Input.GetMouseButtonDown(0))
+			if(ButtonFunctions.start)
 				{
 					startBut.SetActive(false);
 					highScore.enabled =false;
 					highScoreTitle.enabled =false;
 					Time.timeScale =1;
-				
+					ButtonFunctions.start =false;
 				}
 		reSpawnPacs();
 	}
@@ -50,38 +54,11 @@ public class GameManager : MonoBehaviour {
 	{
 		if(Pacman.pacName == "Bob")
 		{
-			whichPos =Random.Range(0,9);
+			whichPos =Random.Range(0,39);
 			Instantiate(pacman[0],spawnPos[whichPos],Quaternion.identity);
 			
 			Pacman.pacName = "";
 		}
-		else if(Pacman.pacName =="Clyde")
-		{
-			whichPos =Random.Range(0,9);
-			Instantiate(pacman[1],spawnPos[whichPos],Quaternion.identity);
 		
-			Pacman.pacName = "";
-		}
-		else if(Pacman.pacName =="Daniel")
-		{
-			whichPos =Random.Range(0,9);
-			Instantiate(pacman[2],spawnPos[whichPos],Quaternion.identity);
-			
-			Pacman.pacName = "";
-		}
-		else if(Pacman.pacName =="Tom")
-		{
-			whichPos =Random.Range(0,9);
-			Instantiate(pacman[3],spawnPos[whichPos],Quaternion.identity);
-			
-			Pacman.pacName = "";
-		}
-		else if(Pacman.pacName =="Jack")
-		{
-			whichPos =Random.Range(0,0);
-			Instantiate(pacman[4],spawnPos[whichPos],Quaternion.identity);
-			
-			Pacman.pacName = "";
-		}
 	}
 }

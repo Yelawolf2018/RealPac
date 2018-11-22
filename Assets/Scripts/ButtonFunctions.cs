@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class ButtonFunctions : MonoBehaviour {
 
-
+public static bool start =false;
 public void Restart()
 {
 	Player.gameOver =false;
@@ -12,6 +12,7 @@ public void Restart()
 }
 public void startGame()
 {
+	start = true;
 	Time.timeScale =1;
 }
 }

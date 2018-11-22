@@ -19,8 +19,8 @@ public class Items : MonoBehaviour {
 		if(die)
 		{
 			delay = Time.timeSinceLevelLoad+15f;
-			w = Random.Range(0,5);
-			transform.position = randPos[w];
+			// w = Random.Range(0,5);
+			// transform.position = randPos[w];
 			die =false;
 		}
 		{

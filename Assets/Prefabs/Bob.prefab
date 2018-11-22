@@ -373,8 +373,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.3, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.6, y: 0.3, z: 0.72127736}
+  m_Center: {x: 0, y: 0, z: -0.11063857}
 --- !u!65 &65307577339028220
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -385,8 +385,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.3, z: 0.6}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.6473712, y: 0.3, z: 0.6}
+  m_Center: {x: 0.07368531, y: 0, z: 0}
 --- !u!65 &65368588068249688
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -397,8 +397,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.3, z: 0.6}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.66659313, y: 0.3, z: 0.6}
+  m_Center: {x: -0.0832963, y: 0, z: 0}
 --- !u!65 &65572501528719892
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -409,8 +409,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.3, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.6, y: 0.3, z: 0.6409629}
+  m_Center: {x: 0, y: 0, z: 0.07048143}
 --- !u!102 &102900264103875794
 TextMesh:
   serializedVersion: 3
@@ -507,6 +507,7 @@ MonoBehaviour:
   - {fileID: 1471901875623146}
   - {fileID: 1838853899454656}
   - {fileID: 1630284555517302}
+  wanderTimer: 0.7
 --- !u!114 &114839436580386684
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -525,7 +526,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123617546927548}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a00344f4a30219a42a353e9a720dabf4, type: 3}
   m_Name: 
