@@ -17,7 +17,7 @@ public class Camera : MonoBehaviour {
 	// 	transform.LookAt(player.transform);
 	// 	}
 	// }
-	private void Update() {
+	private void FixedUpdate() {
 		if(player !=null)
 		{
 			
