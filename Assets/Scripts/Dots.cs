@@ -15,16 +15,15 @@ public class Dots : MonoBehaviour {
 		die =false;
 	}
 	private void Update() {
-if(die)
-{
-	delay = Time.timeSinceLevelLoad+10f;
-	die =false;
-}
-{
-	regen();
-}
-		
-
+			if(die)
+				{
+					delay = Time.timeSinceLevelLoad+10f;
+					die =false;
+				}
+				{
+					regen();
+				}
+			
 	}
 	private void OnCollisionEnter(Collision other) {
 		if(other.gameObject.tag == "Player" || other.gameObject.tag == "Pac")

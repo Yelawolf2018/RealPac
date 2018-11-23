@@ -19,7 +19,7 @@ public Text ScoreText;
 		gameOver =false;
 		delay = 5;
 		ShieldPP.SetActive(false);
-		score = Random.Range(5,50);
+		score = Random.Range(5,10);
 		death =false;
 		textMesh.GetComponent<TextMesh>();
 		textMesh.text = score.ToString();

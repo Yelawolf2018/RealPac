@@ -29,30 +29,7 @@ public GameObject[] PP;
 	 public float wanderTimer = 2f;
 //	float timer;
 	void Start () {
-		
-		
-	//	timer = wanderTimer;
-		//  for(int i =0; i<which.Length; i++)
-        // {
-        //     which[i].GetComponent<MoveMedregch>();
-        // }
-		// where = Random.Range(0,4);
-		// 			if(where == 0)
-		// 			{
-		// 				right =true;
-		// 			}
-		// 			else if(where == 1)
-		// 				 {
-		// 					 up = true;
-		// 				 }
-		// 			else if(where ==3)
-		// 				 {
-		// 					down = true;
-		// 				 }
-		// 			else
-		// 			{
-		// 				left = true;
-		// 			}
+	
 		
 		matInt  =Random.Range(0,6);
 		GetComponent<Renderer>().material = mat[matInt];
@@ -61,7 +38,7 @@ public GameObject[] PP;
 		ShieldPP.SetActive(false);
 		delay = 5;
 		giveShield =false;
-		score = Random.Range(5,100);
+		score = Random.Range(5,10);
 		death =false;
 		textMesh.GetComponent<TextMesh>();
 		textMesh.text = score.ToString();
@@ -72,28 +49,35 @@ public GameObject[] PP;
 		
 		if(giveShield)
 			{
-				delay-=Time.deltaTime;
+				giveShieldD();	
+			}
+
+			if(death)
+				{
+					deathActions();
+				}
+		}
+		void giveShieldD()
+		{
+			delay-=Time.deltaTime;
 				if(delay<0)
 					{
 						giveShield =false;
 						ShieldPP.SetActive(false);
 						delay = 5;
 					}
-			}
-
-		if(death)
-		{
-		
-			Instantiate(PP[matInt],transform.position,Quaternion.identity);
-			Instantiate(decals[matInt],new Vector3(transform.position.x,0.1f,transform.position.z),Quaternion.identity);
-			pacName = pacNameVAlue;
-			Destroy(gameObject);
-			death =false;
-			
 		}
+		void deathActions()
+		{
+				Instantiate(PP[matInt],transform.position,Quaternion.identity);
+				Instantiate(decals[matInt],new Vector3(transform.position.x,0.1f,transform.position.z),Quaternion.identity);
+				pacName = pacNameVAlue;
+				Destroy(gameObject);
+				death =false;
 		}
 		void realRandomMove()
 		{
+			if(target !=null)
 			transform.position = Vector3.MoveTowards(transform.position,target.position,moveSpeed*Time.deltaTime);
 		}
 		// void findOpenRoad()

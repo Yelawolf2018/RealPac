@@ -7,7 +7,7 @@ public class splatter : MonoBehaviour {
 	
 	void Start () {
 		
-	Destroy(gameObject,0.8f);
+	Destroy(gameObject,1.3f);
 	}
 	
 }

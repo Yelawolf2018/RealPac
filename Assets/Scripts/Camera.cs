@@ -20,11 +20,15 @@ public class Camera : MonoBehaviour {
 	private void FixedUpdate() {
 		if(player !=null)
 		{
-			
+			followPlayer();
+		
+		}
+	}
+	void followPlayer()
+	{
 		Vector3 desiredPos = player.transform.position+offset;
 		Vector3 smoothPos = Vector3.Lerp(transform.position,desiredPos,smoothSpd);
 		transform.position = smoothPos;
 		transform.LookAt(player.transform);
-		}
 	}
 }

@@ -1719,7 +1719,7 @@ MonoBehaviour:
   hdr: 0
   sepBlurSpread: 1.95
   quality: 0
-  bloomIntensity: 0.5
+  bloomIntensity: 0.3
   bloomThreshold: 0.08
   bloomThresholdColor: {r: 1, g: 1, b: 1, a: 1}
   bloomBlurIterations: 1

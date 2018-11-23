@@ -31,23 +31,12 @@ public class GameManager : MonoBehaviour {
 			if(Player.gameOver)
 			{
 				
-				restartBut.SetActive(true);
-				currentScore.enabled = true;
-				bg.enabled = true;
-				highScoreTitle.enabled =true;
-				highScore.enabled =true;
+				gameOver();
 			
-				
-				
 			}
 			if(ButtonFunctions.start)
 				{
-					bg.enabled = false;
-					startBut.SetActive(false);
-					highScore.enabled =false;
-					highScoreTitle.enabled =false;
-					Time.timeScale =1;
-					ButtonFunctions.start =false;
+					gameStartB();
 				}
 		reSpawnPacs();
 	}
@@ -61,5 +50,22 @@ public class GameManager : MonoBehaviour {
 			Pacman.pacName = "";
 		}
 		
+	}
+	void gameOver()
+	{
+		restartBut.SetActive(true);
+				currentScore.enabled = true;
+				bg.enabled = true;
+				highScoreTitle.enabled =true;
+				highScore.enabled =true;
+	}
+	void gameStartB()
+	{
+		bg.enabled = false;
+					startBut.SetActive(false);
+					highScore.enabled =false;
+					highScoreTitle.enabled =false;
+					Time.timeScale =1;
+					ButtonFunctions.start =false;
 	}
 }

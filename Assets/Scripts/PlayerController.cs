@@ -49,30 +49,6 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetMouseButtonUp(0))
         {
             
-        //    if(collide)
-        //    {
-        //         if(up)
-        //         {
-        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.2f),smoothHurricaine);
-        //             up =false;
-        //         }
-        //         else if(down)
-        //         {
-        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.2f),smoothHurricaine);
-        //             down =false;
-        //         }
-        //         else if(left)
-        //         {
-        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x+0.2f,transform.position.y ,transform.position.z),smoothHurricaine);
-        //             left =false;
-        //         }
-        //         else if(right)
-        //         {
-        //             transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x-0.2f,transform.position.y ,transform.position.z),smoothHurricaine);
-        //             right =false;
-        //         }
-        //         collide = false;
-        //    }
             isHold = false;
            
         }
@@ -169,13 +145,9 @@ public class PlayerController : MonoBehaviour {
                     {
                         
                                 down =true;
-                        
-                              
-                        
-					   up = false;
-		
-						right =false;
-						left =false;
+                                 up = false;
+		                        right =false;
+						        left =false;
 						
                     }
                    }

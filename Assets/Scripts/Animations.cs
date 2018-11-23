@@ -13,18 +13,20 @@ public class Animations : MonoBehaviour {
 	}
 
 	void Update () {
+		playAnim();
+		
+	}
+	void playAnim()
+	{
 		if(Player.gameOver)
 		{
 			anim.Play("bg");
 		
-			
-			
 		}
 		else
 		{
-			
+		
 			anim.Play("New State");
 		}
-		
 	}
 }
