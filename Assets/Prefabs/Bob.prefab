@@ -99,7 +99,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123617546927548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.97, y: 0.35, z: 6.973}
+  m_LocalPosition: {x: -8, y: 0.35, z: 7}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4227408257723222}
@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8368ef0cd4b9de143b3f64039b2bee56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  splatter: {fileID: 0}
   ShieldPP: {fileID: 1490630554411352}
   PP:
   - {fileID: 1036494069720226, guid: 6aad8a685a438e641a50e05bd0318057, type: 2}
@@ -303,6 +304,14 @@ MonoBehaviour:
   - {fileID: 2100000, guid: d3be2d49311e4414da24891c86d48784, type: 2}
   - {fileID: 2100000, guid: 5fdfb5e75e258be41b3fe5c4f69f1d7f, type: 2}
   - {fileID: 2100000, guid: 72e0d0dddf7738546b09db0bb2787a5f, type: 2}
+  decals:
+  - {fileID: 1601448873143104, guid: f897df303823b5a44a53ea79c8b82e2d, type: 2}
+  - {fileID: 1162434062781592, guid: d21de198c58902c419920f98d97e5fcc, type: 2}
+  - {fileID: 1370710293053400, guid: 8468975e230e2c64c9bcaff24accda7a, type: 2}
+  - {fileID: 1086452046778494, guid: 4e50293954cdb7845a448312be4752e5, type: 2}
+  - {fileID: 1584099494755332, guid: 54a6306ce023fc54694a3282a3a630b1, type: 2}
+  - {fileID: 1923504722232432, guid: c19cd01510ccbc941a6a12c9a647212f, type: 2}
+  - {fileID: 1130946450313116, guid: 960a374046a80284e831ae823af5b9c8, type: 2}
   smoothHurricaine: 0.5
   moveSpeed: 3
   wanderTimer: 1

@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour {
 	{
 		if(Pacman.pacName == "Bob")
 		{
-			whichPos =Random.Range(0,9);
+			whichPos =Random.Range(0,63);
 			Instantiate(pacman[0],spawnPos[whichPos].position,Quaternion.identity);
 			
 			Pacman.pacName = "";

@@ -215,29 +215,29 @@ public class PlayerController : MonoBehaviour {
             // collide =true;
 
             
-                if(up)
-                {
-                       transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.15f),smoothHurricaine);
-                   up =false;
+                // if(up)
+                // {
+                //        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.15f),smoothHurricaine);
+                //    up =false;
                   
-                }
-                else if(down)
-                {
-                       transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.15f),smoothHurricaine);
-                    down =false;
-                }
-                else if(left)
-                {
-                     transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x+0.15f,transform.position.y ,transform.position.z),smoothHurricaine);
-                     left =false;
+                // }
+                // else if(down)
+                // {
+                //        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.15f),smoothHurricaine);
+                //     down =false;
+                // }
+                // else if(left)
+                // {
+                //      transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x+0.15f,transform.position.y ,transform.position.z),smoothHurricaine);
+                //      left =false;
                     
-                }
-                else if(right)
-                {
-                         transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x-0.15f,transform.position.y ,transform.position.z),smoothHurricaine);
-                    right =false;
+                // }
+                // else if(right)
+                // {
+                //          transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x-0.15f,transform.position.y ,transform.position.z),smoothHurricaine);
+                //     right =false;
                   
-                }
+                // }
                // collide =false;
               }
     }

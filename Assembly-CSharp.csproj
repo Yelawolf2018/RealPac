@@ -62,9 +62,9 @@
      <Compile Include="Assets\Scripts\MoveMedregch.cs" />
      <Compile Include="Assets\Scripts\Node.cs" />
      <Compile Include="Assets\Scripts\Pacman.cs" />
-     <Compile Include="Assets\Scripts\Path.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\splatter.cs" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendOneOne.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\NoiseEffectShaderRGB.shader" />
      <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_DepthOfField\SeparableWeightedBlurDof34.shader" />

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 public class Pacman : MonoBehaviour {
 
-
+public GameObject splatter;
 public GameObject ShieldPP;
 public GameObject[] PP;
 	public TextMesh textMesh;
@@ -17,6 +17,8 @@ public GameObject[] PP;
 	float delay;
 	public Material[] mat;
 	int matInt;
+	public GameObject[] decals;
+
 	bool up,down,right,left;
     public float smoothHurricaine = 0.05f;
 	public float moveSpeed = 5f;
@@ -27,6 +29,8 @@ public GameObject[] PP;
 	 public float wanderTimer = 2f;
 //	float timer;
 	void Start () {
+		
+		
 	//	timer = wanderTimer;
 		//  for(int i =0; i<which.Length; i++)
         // {
@@ -81,6 +85,7 @@ public GameObject[] PP;
 		{
 		
 			Instantiate(PP[matInt],transform.position,Quaternion.identity);
+			Instantiate(decals[matInt],new Vector3(transform.position.x,0.1f,transform.position.z),Quaternion.identity);
 			pacName = pacNameVAlue;
 			Destroy(gameObject);
 			death =false;

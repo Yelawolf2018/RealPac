@@ -372,8 +372,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.3, z: 0.6}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.5844763, y: 0.3, z: 0.3}
+  m_Center: {x: 0.042238124, y: 0, z: 0}
 --- !u!65 &65282020277288342
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -384,8 +384,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.3, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.3, y: 0.3, z: 0.5851448}
+  m_Center: {x: 0, y: 0, z: 0.042572357}
 --- !u!65 &65457815512622690
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -396,8 +396,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.6, y: 0.3, z: 0.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.3, y: 0.3, z: 0.5872008}
+  m_Center: {x: 0, y: 0, z: -0.043600436}
 --- !u!65 &65583991618170820
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -408,8 +408,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.3, z: 0.6}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.592924, y: 0.3, z: 0.3}
+  m_Center: {x: -0.046461996, y: 0, z: 0}
 --- !u!102 &102306199934550050
 TextMesh:
   serializedVersion: 3
@@ -526,5 +526,5 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Center: {x: 0, y: 0, z: 0}
