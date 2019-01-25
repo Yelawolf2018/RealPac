@@ -175,8 +175,6 @@ public class Pacman : MonoBehaviour
 
     private void OnCollisionEnter(Collision others)
     {
-
-
         if (others.gameObject.tag == "Shield")
         {
             giveShield = true;
@@ -191,7 +189,7 @@ public class Pacman : MonoBehaviour
                 {
                     others.gameObject.GetComponent<Pacman>().death = true;
 
-                    score += 10;
+                    score += others.gameObject.GetComponent<Pacman>().score;
                     textMesh.text = score.ToString();
 
                 }
@@ -199,7 +197,7 @@ public class Pacman : MonoBehaviour
                 {
                     others.gameObject.GetComponent<Pacman>().death = true;
 
-                    score += 10;
+                    score += others.gameObject.GetComponent<Pacman>().score;
                     textMesh.text = score.ToString();
                 }
             }
@@ -214,7 +212,7 @@ public class Pacman : MonoBehaviour
                 {
                     others.gameObject.GetComponent<Player>().death = true;
 
-                    score += 10;
+                    score += others.gameObject.GetComponent<Player>().score;
                     textMesh.text = score.ToString();
 
                 }
@@ -222,7 +220,7 @@ public class Pacman : MonoBehaviour
                 {
                     others.gameObject.GetComponent<Player>().death = true;
 
-                    score += 10;
+                    score += others.gameObject.GetComponent<Player>().score;
                     textMesh.text = score.ToString();
                 }
             }

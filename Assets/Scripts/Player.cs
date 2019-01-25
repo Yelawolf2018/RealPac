@@ -71,13 +71,13 @@ public class Player : MonoBehaviour
             {
                 other.gameObject.GetComponent<Pacman>().death = true;
                 //other.gameObject.SetActive(false);
-                score += 10;
+                score += other.gameObject.GetComponent<Pacman>().score;
                 textMesh.text = score.ToString();
             }
             if (giveShield && !other.gameObject.GetComponent<Pacman>().giveShield)
             {
                 other.gameObject.GetComponent<Pacman>().death = true;
-                score += 10;
+                score += other.gameObject.GetComponent<Pacman>().score;
                 textMesh.text = score.ToString();
             }
         }
