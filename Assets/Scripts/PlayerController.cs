@@ -2,34 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
-	bool up,down,right,left;
+    bool up, down, right, left;
     public float smoothHurricaine = 0.05f;
-	public float moveSpeed = 5f;
-//    int t;
+    public float moveSpeed = 5f;
+    //    int t;
     public GameObject[] wich;
-	private void Start() {
-        for(int i =0; i<wich.Length; i++)
+    private void Start()
+    {
+        for (int i = 0; i < wich.Length; i++)
         {
             wich[i].GetComponent<MoveMedregch>();
         }
-        collide =false;
-      //  t = 0;
-		up =  true;
-		down =false;
-		right =false;
-		left =false;
-	}
-	void Update () {
+        collide = false;
+        //  t = 0;
+        up = true;
+        down = false;
+        right = false;
+        left = false;
+    }
+    void Update()
+    {
         //Swipe();
-      
+
     }
-    private void FixedUpdate() {
-       Swipe();
+    private void FixedUpdate()
+    {
+        Swipe();
     }
-    
-        
+
+
     //inside class
     Vector2 firstPressPos;
     Vector2 secondPressPos;
@@ -44,13 +48,13 @@ public class PlayerController : MonoBehaviour {
             //save began touch 2d point
             firstPressPos = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
             isHold = true;
-        
+
         }
         if (Input.GetMouseButtonUp(0))
         {
-            
+
             isHold = false;
-           
+
         }
 
         if (isHold)
@@ -85,37 +89,37 @@ public class PlayerController : MonoBehaviour {
                 if (tmpX > dragDistance)
                 {
                     //swipe left
-                    if(wich[2].name !="active")
+                    if (wich[2].name != "active")
+                    {
+                        if (currentSwipe.x < 0)
                         {
-                    if (currentSwipe.x < 0)
-                    {
-                        
-                        
-                                 left = true;
-                          
-                        up = false;
-						down =false;
-						right =false;
-						
-                    }
-                    }
-                         if(wich[1].name != "active")
-                            {   
-                    if(currentSwipe.x>0)
-                    {
-                        //swipe right
-                     
-                           
-                                 right = true;
-                           
-                            
-					   	up = false;
-						down =false;
-						left =false;
-						
+
+
+                            left = true;
+
+                            up = false;
+                            down = false;
+                            right = false;
+
                         }
-                     }  
-                             
+                    }
+                    if (wich[1].name != "active")
+                    {
+                        if (currentSwipe.x > 0)
+                        {
+                            //swipe right
+
+
+                            right = true;
+
+
+                            up = false;
+                            down = false;
+                            left = false;
+
+                        }
+                    }
+
                 }
             }
             else
@@ -123,95 +127,96 @@ public class PlayerController : MonoBehaviour {
                 if (tmpY > dragDistance)
                 {
                     //swipe upwards
-                    if(wich[0].name !="active")
-                        {
-                    if (currentSwipe.y > 0)
+                    if (wich[0].name != "active")
                     {
-                        
+                        if (currentSwipe.y > 0)
+                        {
+
                             up = true;
-                        
-                              
-                              
-                          down =false;
-						right =false;
-						left =false;
-						
-                    }
+
+
+
+                            down = false;
+                            right = false;
+                            left = false;
+
                         }
-                    //swipe down
-                    if(wich[3].name !="active")
-                        {
-                    if (currentSwipe.y < 0)
-                    {
-                        
-                                down =true;
-                                 up = false;
-		                        right =false;
-						        left =false;
-						
                     }
-                   }
+                    //swipe down
+                    if (wich[3].name != "active")
+                    {
+                        if (currentSwipe.y < 0)
+                        {
+
+                            down = true;
+                            up = false;
+                            right = false;
+                            left = false;
+
+                        }
+                    }
                 }
             }
         }
-		wichWay();
-       
+        wichWay();
+
     }
-	public void wichWay()
-	{
-          transform.Translate(Vector3.forward * Time.deltaTime * Input.GetAxis("Vertical")* moveSpeed);
-           transform.Translate(Vector3.right * Time.deltaTime * Input.GetAxis("Horizontal")* moveSpeed); 
-        if(!collide)
+    public void wichWay()
+    {
+        transform.Translate(Vector3.forward * Time.deltaTime * Input.GetAxis("Vertical") * moveSpeed);
+        transform.Translate(Vector3.right * Time.deltaTime * Input.GetAxis("Horizontal") * moveSpeed);
+        if (!collide)
         {
-            if(up)
-			{
-				transform.Translate(0,0,moveSpeed*Time.deltaTime);
-			}
-			else if(down)
-			{
-				transform.Translate(0,0,-moveSpeed*Time.deltaTime);
-			}
-			else if(left)
-			{
-				transform.Translate(-moveSpeed*Time.deltaTime,0,0);
-			}
-			else if(right)
-			{
-				transform.Translate(moveSpeed*Time.deltaTime,0,0);
+            if (up)
+            {
+                transform.Translate(0, 0, moveSpeed * Time.deltaTime);
+            }
+            else if (down)
+            {
+                transform.Translate(0, 0, -moveSpeed * Time.deltaTime);
+            }
+            else if (left)
+            {
+                transform.Translate(-moveSpeed * Time.deltaTime, 0, 0);
+            }
+            else if (right)
+            {
+                transform.Translate(moveSpeed * Time.deltaTime, 0, 0);
             }
         }
-	}
-    private void OnCollisionEnter(Collision other) {
-        if(other.gameObject.tag =="Wall")
+    }
+    private void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Wall")
         {
             // collide =true;
 
-            
-                // if(up)
-                // {
-                //        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.15f),smoothHurricaine);
-                //    up =false;
-                  
-                // }
-                // else if(down)
-                // {
-                //        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.15f),smoothHurricaine);
-                //     down =false;
-                // }
-                // else if(left)
-                // {
-                //      transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x+0.15f,transform.position.y ,transform.position.z),smoothHurricaine);
-                //      left =false;
-                    
-                // }
-                // else if(right)
-                // {
-                //          transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x-0.15f,transform.position.y ,transform.position.z),smoothHurricaine);
-                //     right =false;
-                  
-                // }
-               // collide =false;
-              }
+
+            // if(up)
+            // {
+            //        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z-0.15f),smoothHurricaine);
+            //    up =false;
+
+            // }
+            // else if(down)
+            // {
+            //        transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x,transform.position.y ,transform.position.z+0.15f),smoothHurricaine);
+            //     down =false;
+            // }
+            // else if(left)
+            // {
+            //      transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x+0.15f,transform.position.y ,transform.position.z),smoothHurricaine);
+            //      left =false;
+
+            // }
+            // else if(right)
+            // {
+            //          transform.position = Vector3.Lerp(transform.position, new Vector3(transform.position.x-0.15f,transform.position.y ,transform.position.z),smoothHurricaine);
+            //     right =false;
+
+            // }
+            // collide =false;
+        }
     }
-   
+
 }

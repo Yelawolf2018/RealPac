@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Delete : MonoBehaviour {
+public class Delete : MonoBehaviour
+{
 
-	public float delay;
-	void Start () {
-		Destroy(gameObject,delay);
-	}
+    public float delay;
+    void Start()
+    {
+        Destroy(gameObject, delay);
+    }
 }
